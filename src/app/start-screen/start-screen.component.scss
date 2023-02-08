@@ -1,0 +1,46 @@
+.start-screen {
+    background-color: #404040;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    h1 {
+        position: absolute;
+        text-align: center;
+        color: rgb(181, 51, 0);
+        background-color: rgb(254, 129, 129);
+        font-size: 108px;
+        width: 350px;
+        height: 350px;
+        font-family: 'Indie Flower', cursive;
+        font-family: 'Noto Sans', sans-serif;
+        top: 20px;
+        margin: 0;
+        border: 20px solid gold;
+        border-radius: 100%;
+        padding: 30px;
+    }
+}
+
+.start-label {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    position: absolute;
+    bottom: 10%;
+    cursor: pointer;
+    img {
+        width: 100%;
+        height: auto;
+        &:hover {
+            filter: brightness(1.25);
+        }
+    }
+}
