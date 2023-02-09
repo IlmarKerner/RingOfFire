@@ -1,7 +1,17 @@
+<app-player></app-player>
+
 <div class="content">
     <div class="card-stack">
-        <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0,1,2,3,4,5]; let i = index;" src="assets/img/cards/card_cover.png">
+
+        <!-- Cardstack -->
+        <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0,1,2,3,4,5]; 
+        let i = index;" src="assets/img/cards/card_cover.png">
         <img (click)="pickCard()" class="top-card" style="right: 25px" src="assets/img/cards/card_cover.png">
-        <img (click)="pickCard()" *ngIf="pickCardAnimation" class="pick-card" style="right: 25px" src="assets/img/cards/clubs_1.png">
+
+        <!-- Stack for played Cards  -->
+        <img *ngFor="let card of game.playedCards" class="played-card" src="/assets/img/cards/{{ card }}.png">
+
+        <!-- Current card (Animation) -->
+        <img (click)="pickCard()" *ngIf="pickCardAnimation" class="pick-card" style="right: 25px" src="/assets/img/cards/{{ currentCard }}.png">
     </div>
 </div>
