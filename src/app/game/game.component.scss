@@ -10,6 +10,7 @@
 
 .card-stack {
     position: relative;
+    margin-right: 400px;
     img {
         position: absolute;
         width: 200px;
@@ -49,4 +50,17 @@
 .played-card {
     transform: scale(1.5) translateX(250px) translateY(-250px) rotate(-10deg);
     right: 25px;
+}
+
+.player-position {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 0;
+}
+
+.add-btn {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
 }
