@@ -11,21 +11,24 @@
         width: 100%;
         object-fit: cover;
     }
+}
+
+.start-title {
+    position: absolute;
+    top: 10%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    border: 5px solid orangered;
+    background-color: yellow;
+    border-radius: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h1 {
-        position: absolute;
-        text-align: center;
-        color: rgb(181, 51, 0);
-        background-color: rgb(254, 129, 129);
-        font-size: 108px;
-        width: 350px;
-        height: 350px;
-        font-family: 'Indie Flower', cursive;
+        font-size: 64px;
+        color: firebrick;
         font-family: 'Noto Sans', sans-serif;
-        top: 20px;
-        margin: 0;
-        border: 20px solid gold;
-        border-radius: 100%;
-        padding: 30px;
     }
 }
 
