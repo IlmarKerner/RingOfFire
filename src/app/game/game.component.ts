@@ -26,8 +26,10 @@ export class GameComponent implements OnInit {
   pickCard() {
     if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop();
-      console.log(this.currentCard);
       this.pickCardAnimation = true;
+      this.game.currentPlayer++;
+      this.game.currentPlayer =
+        this.game.currentPlayer % this.game.players.length; // mit dem Modulu % setzen wir die Anzahl zurück sobald alle Spieler durch sind
     }
     setTimeout(() => {
       this.pickCardAnimation = false;
@@ -39,7 +41,9 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => {
-      this.game.players.push(name);
+      if (name && name.length > 0) {
+        this.game.players.push(name);
+      }
     });
   }
 }
