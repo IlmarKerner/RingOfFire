@@ -5,7 +5,7 @@ import { StartScreenComponent } from './start-screen/start-screen.component';
 
 const routes: Routes = [
   {path: '', component: StartScreenComponent },
-  {path: 'game', component: GameComponent},
+  {path: 'game/:id', component: GameComponent}, // mit dem Doppelpunkt wird die Route als Variable aufgerufen. z.B. URL www.google.de/id
 ];
 
 @NgModule({

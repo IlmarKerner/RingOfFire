@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ring-of-fire-f924a": {
+      "hosting": {
+        "RingOfFire": [
+          "ring-of-fire-f924a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ring-of-fire-f924a"
+  }
+}
