@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     background-image: url('../../assets/img/backgroundboard.jpg');
-    // background-image: url('~src/assets/img/backgroundboard.jpg');
+    // background-image: url('~src/assets/img/backgroundboard.jpg'); 
 }
 
 .card-stack {
@@ -41,7 +41,7 @@
         transform: scale(1.3);
     }
     60% {
-        transform: scale(1.3);
+        transform: scale(1.5);
     }
     100% {
         transform: scale(1.5) translateX(250px) translateY(-250px) rotate(-10deg);
@@ -58,6 +58,7 @@
     display: flex;
     align-items: center;
     right: 0;
+    width: 250px;
 }
 
 .add-btn {

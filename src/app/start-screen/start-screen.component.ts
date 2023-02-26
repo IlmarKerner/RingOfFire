@@ -20,7 +20,7 @@ export class StartScreenComponent {
       .then((gameInfo: any) => { // .subscribe kann mehrfach aboniert und aufgerufen werden | .then kann nur einmal aufgerufen werden 
         this.router.navigateByUrl('/game/' + gameInfo.id);
       }); 
-
-    
   }
+
+  
 }

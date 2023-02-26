@@ -51,7 +51,7 @@ export class GameComponent implements OnInit {
       this.game.currentCard = this.game.stack.pop();
       this.game.pickCardAnimation = true;
       this.game.currentPlayer++;
-      this.game.currentPlayer =
+      // this.game.currentPlayer =
       this.game.currentPlayer % this.game.players.length; // mit dem Modulu % setzen wir die Anzahl zurück sobald alle Spieler durch sind
       this.saveGame();
     }
