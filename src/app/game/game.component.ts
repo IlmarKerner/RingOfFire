@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 @Component({
   selector: 'app-game',
@@ -35,6 +37,7 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards;
           this.game.players = game.players;
+          this.game.playersPictúre = game.playersPictúre;
           this.game.stack = game.stack;
           this.game.currentCard = game.currentCard;
           this.game.pickCardAnimation = game.pickCardAnimation;
@@ -51,7 +54,7 @@ export class GameComponent implements OnInit {
       this.game.currentCard = this.game.stack.pop();
       this.game.pickCardAnimation = true;
       this.game.currentPlayer++;
-      // this.game.currentPlayer =
+      this.game.currentPlayer = // gehört noch zur nächsten Zeile!
       this.game.currentPlayer % this.game.players.length; // mit dem Modulu % setzen wir die Anzahl zurück sobald alle Spieler durch sind
       this.saveGame();
     }
@@ -68,6 +71,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
+        this.game.playersPictúre.push('boy.png');
         this.saveGame();
       }
     });
@@ -78,5 +82,14 @@ export class GameComponent implements OnInit {
       .collection('games')
       .doc(this.gameId)
       .update(this.game.toJson());
+  }
+
+  editPlayer(playerId: number) {
+    console.log(playerId);
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe((newPicture: string) => {
+      console.log(newPicture);
+      
+    });
   }
 }
