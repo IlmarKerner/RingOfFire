@@ -1,6 +1,6 @@
 export class Game {
   public players: string[] = [];
-  public playersPictúre: string[] = [];
+  public playersPicture: string[] = [];
   public stack: string[] = [];
   public playedCards: string[] = [];
   public currentPlayer: number = 0;
@@ -25,7 +25,7 @@ export class Game {
       currentPlayer: this.currentPlayer,
       pickCardAnimation: this.pickCardAnimation,
       currentCard: this.currentCard,
-      playersPictúre: this.playersPictúre
+      playersPicture: this.playersPicture
 
     };
   }

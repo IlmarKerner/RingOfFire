@@ -1,11 +1,53 @@
+.profile {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
 .profilePicture {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     padding: 8px;
     border-radius: 100%;
     background: none;
     cursor: pointer;
     &:hover {
         filter: brightness(1.2);
+        transition: all 125ms ease-in-out;
     }
+}
+
+.playerbtns {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    button {
+        border: 1px solid black;
+        &:hover {
+            filter: brightness(1.3);
+            transition: all 125ms ease-in-out;
+        }
+    }
+}
+
+.buttonA {
+    background: linear-gradient(to right, yellow, red);
+    color: white;
+    width: 150px;
+}
+
+.buttonB {
+    background: linear-gradient(to right, blue, green);
+    color: white;
+    width: 150px;
 }

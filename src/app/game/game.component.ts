@@ -15,6 +15,7 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
 export class GameComponent implements OnInit {
   game: Game = new Game();
   gameId: string;
+  gameOver = false;
 
   constructor(
     private dialog: MatDialog,
@@ -37,7 +38,7 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards;
           this.game.players = game.players;
-          this.game.playersPictúre = game.playersPictúre;
+          this.game.playersPicture = game.playersPicture;
           this.game.stack = game.stack;
           this.game.currentCard = game.currentCard;
           this.game.pickCardAnimation = game.pickCardAnimation;
@@ -50,19 +51,41 @@ export class GameComponent implements OnInit {
   }
 
   pickCard() {
-    if (!this.game.pickCardAnimation) {
-      this.game.currentCard = this.game.stack.pop();
-      this.game.pickCardAnimation = true;
-      this.game.currentPlayer++;
-      this.game.currentPlayer = // gehört noch zur nächsten Zeile!
-      this.game.currentPlayer % this.game.players.length; // mit dem Modulu % setzen wir die Anzahl zurück sobald alle Spieler durch sind
-      this.saveGame();
+    if (this.game.stack.length < 1) {
+      this.gameOver = true;
+    } else {
+      if (!this.game.pickCardAnimation) {
+        this.game.currentCard = this.game.stack.pop();
+        this.game.pickCardAnimation = true;
+        this.game.currentPlayer++;
+        this.game.currentPlayer = // gehört noch zur nächsten Zeile!
+          this.game.currentPlayer % this.game.players.length; // mit dem Modulu % setzen wir die Anzahl zurück sobald alle Spieler durch sind
+        this.saveGame();
+      }
+      setTimeout(() => {
+        this.game.pickCardAnimation = false;
+        this.game.playedCards.push(this.game.currentCard);
+        this.saveGame();
+      }, 1000);
     }
-    setTimeout(() => {
-      this.game.pickCardAnimation = false;
-      this.game.playedCards.push(this.game.currentCard);
-      this.saveGame();
-    }, 1000);
+    
+    
+  }
+
+  editPlayer(playerId: number) {
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe((newPicture: string) => {
+      if (newPicture) {
+        if (newPicture == 'Delete') {
+          this.game.playersPicture.splice(playerId, 1)
+          this.game.players.splice(playerId, 1)
+        } else {
+          this.game.playersPicture[playerId] = newPicture;
+          
+        }
+        this.saveGame();
+      }
+    });
   }
 
   openDialog(): void {
@@ -71,7 +94,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
-        this.game.playersPictúre.push('boy.png');
+        this.game.playersPicture.push('boy.png');
         this.saveGame();
       }
     });
@@ -84,12 +107,8 @@ export class GameComponent implements OnInit {
       .update(this.game.toJson());
   }
 
-  editPlayer(playerId: number) {
-    console.log(playerId);
-    const dialogRef = this.dialog.open(EditPlayerComponent);
-    dialogRef.afterClosed().subscribe((newPicture: string) => {
-      console.log(newPicture);
-      
-    });
+  restartGame() {
+  
   }
 }
+
