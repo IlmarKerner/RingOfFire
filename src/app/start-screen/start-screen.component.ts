@@ -14,12 +14,14 @@ export class StartScreenComponent {
   constructor(private router: Router, private firestore: AngularFirestore) {}
 
   newGame() {
+    debugger;
     this.firestore
       .collection('games')
       .add(this.game.toJson())// mit dieser Zeile greifen wir auf den firestore zu, und "add"et ein neues JSON
       .then((gameInfo: any) => { // .subscribe kann mehrfach aboniert und aufgerufen werden | .then kann nur einmal aufgerufen werden 
-        this.router.navigateByUrl('/game/' + gameInfo.id);
-      }); 
+        this.router.navigateByUrl('/game/' + gameInfo.id).then((hasNavigated) => console.log('Has navigated:', hasNavigated) ).catch((err) => console.error(err));
+      })
+      .catch(error => (console.error(error))); 
   }
 
   

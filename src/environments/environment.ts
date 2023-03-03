@@ -1,9 +1,13 @@
 export const environment = {
   firebase: {
-    projectId: 'ring-of-fire-f924a',
-    appId: '1:520262530269:web:0868f64b52f1a5d3411734',
-    storageBucket: 'ring-of-fire-f924a.appspot.com',
-    apiKey: 'AIzaSyAeNN6SUvTTq-824jt84rOEg1zGnnjSXxg',
-    authDomain: 'ring-of-fire-f924a.firebaseapp.com',
-    messagingSenderId: '520262530269',
-  },};
+    apiKey: 'AIzaSyCBWOiLpZRzM_xoOd0LFGngYdbLGSxtviI',
+    authDomain: 'ringoffire-a5b9d.firebaseapp.com',
+    databaseURL:
+      'https://ringoffire-a5b9d-default-rtdb.europe-west1.firebasedatabase.app',
+    projectId: 'ringoffire-a5b9d',
+    storageBucket: 'ringoffire-a5b9d.appspot.com',
+    messagingSenderId: '136731082141',
+    appId: '1:136731082141:web:edceac8817265ea90ec374',
+    measurementId: 'G-0V5L9XHN3F',
+  },
+};
